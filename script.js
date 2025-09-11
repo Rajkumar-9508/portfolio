@@ -1,8 +1,8 @@
 // Scroll reveal animations
 const sections = document.querySelectorAll("section");
-const toggleBtn = document.getElementById("darkModeToggle");
-const reveals = document.querySelectorAll(".reveal");
+const toggle = document.getElementById("darkModeToggle");
 const body = document.body;
+const reveals = document.querySelectorAll(".reveal");
 
 const observer = new IntersectionObserver(
   (entries) => {
@@ -40,21 +40,8 @@ scrollTopBtn.addEventListener("click", () => {
   });
 });
 
-if (localStorage.getItem("theme") === "dark") {
-  body.classList.add("dark-mode");
-  toggleBtn.textContent = "☀️Toggle light"; // Light mode icon
-}
-
-toggleBtn.addEventListener("click", () => {
-  body.classList.toggle("dark-mode");
-
-  if (body.classList.contains("dark-mode")) {
-    toggleBtn.textContent = "☀️Toggle light"; // Light mode icon
-    localStorage.setItem("theme", "dark");
-  } else {
-    toggleBtn.textContent = "🌙Toggle dark"; // Dark mode icon
-    localStorage.setItem("theme", "light");
-  }
+toggle.addEventListener("change", () => {
+    body.classList.toggle("dark-mode");
 });
 
 window.addEventListener("scroll", () => {

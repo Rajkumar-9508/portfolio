@@ -18,30 +18,65 @@ body.dark-mode {
   color: #ffffff;
 }
 
-/* Navbar */
+/* Navbar styling */
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 2rem;
-  background-color: #0d1117;
-  color: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
   align-items: center;
-  /* background: #f5f5f5; */
+  padding: 1rem 2rem;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
 }
 
-body.dark-mode .navbar {
-  background: #1e1e1e;
+/* Dark/Light theme colors */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #222;
+}
+
+body.dark-mode {
+  --bg-color: #1a1a1a;
+  --text-color: #f5f5f5;
 }
 
 /* Toggle button */
-.toggle-btn {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
+.toggle-container {
+  position: relative;
+}
+
+.toggle {
+  width: 60px;
+  height: 30px;
+  background: #87ceeb;
+  border-radius: 50px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+  transition: background 0.3s;
+}
+
+.toggle .sun,
+.toggle .moon {
+  font-size: 18px;
+}
+
+#darkModeToggle {
+  display: none;
+}
+
+#darkModeToggle:checked + .toggle {
+  background: #333;
+}
+
+#darkModeToggle:checked + .toggle .sun {
+  display: none;
+}
+
+#darkModeToggle:not(:checked) + .toggle .moon {
+  display: none;
 }
 
 .navbar ul {
@@ -51,13 +86,13 @@ body.dark-mode .navbar {
 }
 
 .navbar a {
-  color: #fff;
+  color: #ff0101;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .navbar a:hover {
-  color: #ff7f50;
+  color: #00ffff;
 }
 
 /* Hero Section */
@@ -83,9 +118,13 @@ body.dark-mode .navbar {
 }
 
 .profile-pic {
-  width: 180px;
+  width: 270px;
+  height: 270px;
   border-radius: 50%;
-  box-shadow: 0 20px 40px rgb(126, 121, 121);
+  border: 5px solid #fff;
+  object-fit: cover;
+  object-position: 20% 10%;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
   transition: transform 0.6s ease;
 }
 
@@ -378,17 +417,72 @@ button:hover {
 
 /* Footer */
 footer {
-  background: #0d1117;
+  /* background: #0d1117; */
   color: #fff;
   padding: 2rem 1rem;
   position: relative;
   text-align: center;
 }
 
-.footer-logo {
+.footer-container {
+  text-align: center;
+  padding: 20px;
+  background: var(--bg-color);
+  color: var(--text-color);
+  border-top: 1px solid #ccc;
+}
+
+.social-icons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons .icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #333;
+  font-size: 20px;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.social-icons .icon:hover {
+  transform: translateY(-5px);
+}
+
+.social-icons .icon img {
   width: 40px;
   height: 40px;
-  border-radius: 50%; /* circle logo */
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.social-icons .icon img:hover {
+  transform: translateY(-5px);
+}
+
+/* Custom colors for each */
+.icon.fb:hover { background: #1877f2; color: #fff; }
+.icon.git:hover { background: #333; color: #fff; }
+.icon.ln:hover { background: #0077b5; color: #fff; }
+.icon.ig:hover { background: #e1306c; color: #fff; }
+.icon.yt:hover { background: #ff0000; color: #fff; }
+
+
+/* .footer-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   margin-right: 8px;
   vertical-align: middle;
 }
@@ -408,7 +502,7 @@ footer .social-links a {
 
 footer .social-links a:hover {
   color: #ff7f50;
-}
+} */
 
 /* Scroll to top button */
 #scrollTopBtn {
