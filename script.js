@@ -4,6 +4,12 @@ const toggle = document.getElementById("darkModeToggle");
 const body = document.body;
 const reveals = document.querySelectorAll(".reveal");
 
+// Close button click par popup hatana
+document.getElementById("closeBtn").addEventListener("click", function () {
+  document.getElementById("popupOverlay").style.display = "none";
+  document.getElementById("mainContent").style.display = "block";
+});
+
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -41,7 +47,7 @@ scrollTopBtn.addEventListener("click", () => {
 });
 
 toggle.addEventListener("change", () => {
-    body.classList.toggle("dark-mode");
+  body.classList.toggle("dark-mode");
 });
 
 window.addEventListener("scroll", () => {
