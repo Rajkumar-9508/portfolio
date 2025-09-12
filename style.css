@@ -91,6 +91,24 @@ body.dark-mode {
   transition: background 0.3s, color 0.3s;
 }
 
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #333;
+}
+
 /* Dark/Light theme colors */
 :root {
   --bg-color: #ffffff;
@@ -100,6 +118,14 @@ body.dark-mode {
 body.dark-mode {
   --bg-color: #1a1a1a;
   --text-color: #f5f5f5;
+}
+
+/* Hamburger hidden by default (desktop only) */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  user-select: none;
 }
 
 /* Toggle button */
@@ -155,6 +181,26 @@ body.dark-mode {
 
 .navbar a:hover {
   color: #00ffff;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack items */
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .toggle-container {
+    align-self: flex-end;
+    margin-top: 10px;
+  }
 }
 
 /* Hero Section */
