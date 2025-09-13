@@ -7,15 +7,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Popup -->
-    <div id="popupOverlay">
-      <div id="popupBox">
-        <h1>Welcome To My</h1>
-        <h2>Portfolio Website</h2>
-        <button id="closeBtn">Enter</button>
-      </div>
-    </div>
-
     <!-- Navbar -->
     <header>
       <nav class="navbar">
@@ -128,16 +119,19 @@
         </div>
 
         <div class="design-card">
-          <img
-            src="images/modal.png"
-            alt="React"
-            class="design-img"
-          />
+          <img src="images/modal.png" alt="React" class="design-img" />
           <h3>modal Design</h3>
           <p>Designing responsive modal components for user interactions.</p>
           <div class="card-links">
-            <a href="https://github.com/Rajkumar-9508/portfolio/blob/main/design/modal.html" target="_blank" class="code-link">Code ↗</a>
-            <a href="design/modal.html" target="_blank" class="live-link">Live ↗</a>
+            <a
+              href="https://github.com/Rajkumar-9508/portfolio/blob/main/design/modal.html"
+              target="_blank"
+              class="code-link"
+              >Code ↗</a
+            >
+            <a href="design/modal.html" target="_blank" class="live-link"
+              >Live ↗</a
+            >
           </div>
         </div>
       </div>
@@ -162,6 +156,44 @@
       </div>
     </section>
 
+    <!-- Certificates Section -->
+    <section id="certificates" class="reveal">
+      <h2><u>Certificates</u></h2>
+      <div class="certificates-container">
+        <div class="certificate-card">
+          <img
+            src="images/certificate1.png"
+            alt="Certificate 1"
+            onclick="openModal(this)"
+          />
+          <span class="cert">Workshop On Data Science and AI</span>
+        </div>
+        <div class="certificate-card">
+          <img
+            src="images/certificateofferleater.jpg"
+            alt="Certificate 2"
+            onclick="openModal(this)"
+          />
+          <span class="cert">Offer Letter by TECHCODER SOFTWARE SERVICE(OPC) PVT.LTD.</span>
+        </div>
+        <div class="certificate-card">
+          <img
+            src="images/certificate2.jpg"
+            alt="Certificate 3"
+            onclick="openModal(this)"
+          />
+          <span class="cert">Full Stack Web Development Certificate</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="imgModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="modalImage" />
+      <div id="caption"></div>
+    </div>
+
     <!-- Projects Section -->
     <section id="projects">
       <h2><u>My Projects</u></h2>
@@ -172,8 +204,8 @@
           <div class="project-info">
             <h3>Portfolio Website</h3>
             <p>
-              A game to test your memory skills using emojis built with
-              HTML, CSS, and JavaScript.
+              A game to test your memory skills using emojis built with HTML,
+              CSS, and JavaScript.
             </p>
             <div class="project-links">
               <a href="project/emoji.html" target="_blank" class="btn"
@@ -198,8 +230,15 @@
               A fun number guessing game built with HTML, CSS, and JavaScript.
             </p>
             <div class="project-links">
-              <a href="project/guess.html" target="_blank" class="btn">Live Demo</a>
-              <a href="https://github.com/Rajkumar-9508/portfolio/blob/main/project/guess.html" target="_blank" class="btn">GitHub</a>
+              <a href="project/guess.html" target="_blank" class="btn"
+                >Live Demo</a
+              >
+              <a
+                href="https://github.com/Rajkumar-9508/portfolio/blob/main/project/guess.html"
+                target="_blank"
+                class="btn"
+                >GitHub</a
+              >
             </div>
           </div>
         </div>
@@ -209,9 +248,7 @@
           <img src="images/websit.png" alt="Project 3" />
           <div class="project-info">
             <h3>Chat App</h3>
-            <p>
-              coming soon...
-            </p>
+            <p>coming soon...</p>
             <div class="project-links">
               <a href="#" target="_blank" class="btn">Live Demo</a>
               <a href="#" target="_blank" class="btn">GitHub</a>

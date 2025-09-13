@@ -63,3 +63,17 @@ window.addEventListener("scroll", () => {
     }
   }
 });
+
+function openModal(img) {
+  var modal = document.getElementById("imgModal");
+  var modalImg = document.getElementById("modalImage");
+  var captionText = document.getElementById("caption");
+
+  modal.style.display = "block";
+  modalImg.src = img.src;
+  captionText.innerHTML = img.alt;
+}
+
+function closeModal() {
+  document.getElementById("imgModal").style.display = "none";
+}
