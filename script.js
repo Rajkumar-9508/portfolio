@@ -4,12 +4,6 @@ const toggle = document.getElementById("darkModeToggle");
 const body = document.body;
 const reveals = document.querySelectorAll(".reveal");
 
-// Close button click par popup hatana
-document.getElementById("closeBtn").addEventListener("click", function () {
-  document.getElementById("popupOverlay").style.display = "none";
-  document.getElementById("mainContent").style.display = "block";
-});
-
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -46,9 +40,21 @@ scrollTopBtn.addEventListener("click", () => {
   });
 });
 
+// Dark mode toggle
+if (localStorage.getItem("theme") === "dark") {
+  body.classList.add("dark");
+  toggle.checked = true;
+}
+
 toggle.addEventListener("change", () => {
-  body.classList.toggle("dark-mode");
-});
+    if (toggle.checked) {
+      body.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      body.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  });
 
 window.addEventListener("scroll", () => {
   for (let i = 0; i < reveals.length; i++) {
