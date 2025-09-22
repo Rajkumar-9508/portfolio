@@ -553,6 +553,13 @@ footer {
   text-align: center;
 }
 
+.footer-container h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #38bdf8;
+  position: relative;
+}
+
 .footer-container {
   text-align: center;
   padding: 20px;
