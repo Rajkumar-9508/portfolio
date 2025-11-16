@@ -1,8 +1,39 @@
 // Scroll reveal animations
 const sections = document.querySelectorAll("section");
 const toggle = document.getElementById("darkModeToggle");
+const darkToggle = document.getElementById("darkModeToggle");
 const body = document.body;
 const reveals = document.querySelectorAll(".reveal");
+const menuBtn = document.getElementById("menu-btn");
+const sidebar = document.getElementById("sidebar");
+const resumeSection = document.getElementById("resume");
+const contactSection = document.getElementById("contact");
+
+// Toggle sidebar
+menuBtn.addEventListener("click", () => {
+  menuBtn.classList.toggle("active");
+  sidebar.classList.toggle("open");
+});
+
+// Handle sidebar link clicks
+document.querySelectorAll(".sidebar-content a").forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    sidebar.classList.remove("open");
+
+    // Hide all sections first
+    [resumeSection,  contactSection].forEach(
+      (sec) => (sec.style.display = "none")
+    );
+
+    // Show clicked section
+    const target = document.querySelector(link.getAttribute("href"));
+    if (target) {
+      target.style.display = "flex";
+      window.scrollTo({ top: target.offsetTop, behavior: "smooth" });
+    }
+  });
+});
 
 const observer = new IntersectionObserver(
   (entries) => {
@@ -47,14 +78,17 @@ if (localStorage.getItem("theme") === "dark") {
 }
 
 toggle.addEventListener("change", () => {
-    if (toggle.checked) {
-      body.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      body.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  });
+  if (toggle.checked) {
+    body.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+  } else {
+    body.classList.remove("dark");
+    localStorage.setItem("theme", "light");
+  }
+});
+darkToggle.addEventListener("change", () => {
+    document.body.classList.toggle("dark");
+});
 
 window.addEventListener("scroll", () => {
   for (let i = 0; i < reveals.length; i++) {
