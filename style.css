@@ -27,8 +27,20 @@ body.dark-mode {
 }
 
 .logo {
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-family: "Great Vibes", cursive; /* Signature Font */
+  font-size: 38px;                     /* Bigger + elegant */
+  font-weight: normal;
+  color: var(--text-color);
+  letter-spacing: 2px;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s ease;
+  transform: rotate(-1deg);
+}
+
+.logo:hover {
+  transform: scale(1.06); /* slight interaction */
+  opacity: 0.85;
 }
 
 /* Links */
